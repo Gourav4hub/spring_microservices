@@ -1,0 +1,60 @@
+class ABC
+{
+	fun1() { .... }
+	
+	fun2() { .... }
+	
+	fun3() { .... }
+}
+
+class XYZ extends ABC
+{
+	hello() { ..... }
+	
+	fun2() { .... }
+	
+	fun3() { super.fun3(); .... }
+}
+
+XYZ ob = new XYZ();
+
+	ob. 1. Own Method
+	    2. Inherited Method	
+	    3. Override
+	    
+   ***************************************************   
+   
+   Abstract Class : At least one Abstract Method;
+   	
+   flying()
+   	1. Bird Define
+   	2. Child Define
+   
+   				Bird
+   				
+   		Crow		Hen		Pigeon		
+   
+   
+   		
+   				Bank
+   				
+   		SBI		UCO		ICICI		
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+	    
+	    
