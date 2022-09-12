@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans  
+    xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xmlns:p="http://www.springframework.org/schema/p"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans  
+               http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">  
+  
+<bean name="b1" class="com.cb.spring.Student">
+	<property name="name" value="Mohan Sharma"/>
+	<property name="age" value="23"/>
+	<property name="marks" value="352.23"/>
+</bean>
+
+<bean name="b2" class="com.cb.spring.Student">
+	<constructor-arg name="name" value="Vikas Verma"/>	
+	<constructor-arg name="marks" value="3267.66"/>
+	<constructor-arg name="age" value="21"/>
+</bean>
+
+<bean name="b3" class="com.cb.spring.Student">
+	<constructor-arg  index="0" value="Rajesh Gupta"/>	
+	<constructor-arg  index="1" value="25"/>
+</bean>
+
+<bean name="e1" class="com.cb.spring.Exam">
+	<property name="title" value="Internal Exam"/>
+	<property name="stud" ref="b2" />
+</bean>
+
+<bean name="d1" class="com.cb.spring.Demo">
+	<constructor-arg name="title" value="Pataa Navigation"/>
+	<constructor-arg name="numbers">
+		<list>
+			<value>34.12</value>
+			<value>44.21</value>
+			<value>54.33</value>
+			<value>45.55</value>
+		</list>
+	</constructor-arg>
+	<constructor-arg name="names">
+		<set>
+			<value>Vikas</value>
+			<value>Gopal</value>
+			<value>Vinay</value>
+			<value>Rajesh</value>
+		</set>
+	</constructor-arg>
+	<constructor-arg name="maps">
+		<map>
+			<entry key="abc" value="23"/>
+			<entry key="xyz" value="44"/>
+			<entry key="pqr" value="21"/>
+		</map>
+	</constructor-arg>
+</bean>
+
+<bean name="s1" class="com.cb.spring.Sample">
+	<property name="studlist">
+		<list>
+			<ref bean="b1"/>
+			<ref bean="b2"/>
+			<ref bean="b3"/>
+		</list>
+	</property>
+</bean>
+
+<!-- Auto Wiring -->
+
+<bean id="t1" class="com.cb.spring.Test" autowire="byType"> <!-- byType : Setter Injection -->
+</bean>
+
+<bean id="t2" class="com.cb.spring.Test" autowire="constructor"> <!-- constructor(ByType) : constructor Injection -->
+</bean>
+
+<bean id="h1" class="com.cb.spring.Hello" autowire="byName"> <!-- byName : setter Injection -->
+</bean>
+
+
+
+
+
+
+
+
+
+  
+</beans> 
