@@ -31,9 +31,8 @@ public class AddressService implements BaseService<Address>
 	}
 
 	@Override
-	public ApiResponse list() {
-		// TODO Auto-generated method stub
-		return null;
+	public ApiResponse list() {		
+		return new ApiResponse(true, null, addressRepo.findAll());
 	}
 
 	@Override

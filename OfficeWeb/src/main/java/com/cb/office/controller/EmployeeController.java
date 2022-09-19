@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cb.office.entity.Employee;
+import com.cb.office.model.EmployeeModel;
 import com.cb.office.response.ApiResponse;
 import com.cb.office.service.EmployeeService;
 
@@ -26,10 +27,15 @@ public class EmployeeController
 	private EmployeeService empService;
 	
 	@PostMapping("/save")
-	public ResponseEntity<ApiResponse> saveEmployee(@RequestBody Employee emp)
+	public ResponseEntity<ApiResponse> saveEmployee(@RequestBody EmployeeModel empModel)
 	{
-		//System.out.println(emp);
-		ApiResponse response = empService.save(emp);
+		Employee emp = new Employee(empModel);
+		ApiResponse response = null;
+		if(empModel.getAddressModel()!=null)
+			response = empService.save(emp,empModel.getAddressModel());
+		else
+			response = empService.save(emp);
+		
 		return new ResponseEntity<ApiResponse>(response, HttpStatus.OK);
 	}
 	
